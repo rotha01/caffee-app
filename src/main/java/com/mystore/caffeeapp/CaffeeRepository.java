@@ -1,30 +1,37 @@
 package com.mystore.caffeeapp;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
+
 public class CaffeeRepository {
 
 
-    CaffeeConfig caffeeConfig = new CaffeeConfig();
-    private final static ArrayList<Caffee> caffeeList = new ArrayList<Caffee>(){{
+    private final CaffeeConfig caffeeConfig;
+    public CaffeeRepository(CaffeeConfig caffeeConfig) {
+        this.caffeeConfig = caffeeConfig;
+    }
+
+
+    private final ArrayList<Caffee> caffeeList = new ArrayList<>(){{
         add(new CaffeeConfig().caffee1());
         add(new CaffeeConfig().caffee2());
         add(new CaffeeConfig().caffee3());
     }};
 
-    public static List<Caffee> getCaffeeList() {
+    public List<Caffee> getCaffeeList() {
         return caffeeList;
     }
 
-    public static Caffee getCaffeeByCode(String code) {
-            Caffee caffee = caffeeList.stream()
+    public Optional<Caffee> getCaffeeByCode(String code) {
+            Optional<Caffee> caffee = caffeeList.stream()
                     .filter(s->s.getCode().equals(code) )
-                    .findFirst()
-                    .get();
+                    .findFirst();
             return caffee;
 
     }

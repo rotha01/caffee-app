@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 public class CaffeeConfig {
     @Bean("caffe1")
-    public Caffee caffee1(){
+    public static Caffee caffee1(){
         return new Caffee("001","Amazon","3$", true);
     }
 
