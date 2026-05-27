@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/v1/caffee")
+@RequestMapping("/api/v1/caffees")
 @RequiredArgsConstructor
 public class CaffeeRestCoontroller {
 
