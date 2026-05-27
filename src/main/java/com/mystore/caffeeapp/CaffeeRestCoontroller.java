@@ -24,7 +24,7 @@ public class CaffeeRestCoontroller {
     }
 
     @GetMapping("/{code}")
-    public Map<String, Object> getCaffeeById(@PathVariable String code) {
+    public Map<String, Object> getCaffeeByCode(@PathVariable String code) {
         Map<String, Object> response = new HashMap<>();
         response.put("message","Get caffee successfull!");
         response.put("status_code", HttpStatus.OK.value());
